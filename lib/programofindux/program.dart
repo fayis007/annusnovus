@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:annusnovus/programofindux/partofprogram.dart';
+import 'package:annusnovus/programofindux/programmore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -220,7 +221,7 @@ class _programState extends State<program> {
                                                            //   width: 175,
                                                            // ),
                                                             FlatButton(onPressed: (){
-                                                             // Navigator.push(context, MaterialPageRoute(builder: (context)=>view()));
+                                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>programofmore()));
                                                             },
                                                                 color: Colors.deepOrange,
                                                                 child: Text(program![i].more!,style: TextStyle(color: Colors.white),))

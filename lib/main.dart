@@ -11,6 +11,7 @@ import 'package:annusnovus/newsofindux/news.dart';
 import 'package:annusnovus/newsofindux/newsmore.dart';
 import 'package:annusnovus/programofindux/partofprogram.dart';
 import 'package:annusnovus/programofindux/program.dart';
+import 'package:annusnovus/programofindux/programmore.dart';
 import 'package:annusnovus/registaration.dart';
 import 'package:annusnovus/studentregistration.dart';
 import 'package:annusnovus/studentregistration2.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:program(),
+      home:frend(),
     );
   }
 }
