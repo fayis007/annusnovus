@@ -1,3 +1,4 @@
+import 'package:annusnovus/aboutofindux/aboutmember.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -107,7 +108,9 @@ class _aboutState extends State<about> {
                             color: Colors.green,
                             child: Center(
                               child: FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>about()));
+                                },
                                 child: Text(
                                   "Who we are",
                                   style: TextStyle(color: Colors.white),
@@ -126,7 +129,9 @@ class _aboutState extends State<about> {
                             width: 150,
                             child: Center(
                               child: FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>eboutmember()));
+                                },
                                 child: Text(
                                   "Board Members",
                                   style: TextStyle(color: Colors.white),
@@ -199,6 +204,7 @@ class _aboutState extends State<about> {
         ),
       ),
       onWillPop: () async {
+        Navigator.pop(context);
         return false;
       },
     );

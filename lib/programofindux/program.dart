@@ -1,35 +1,34 @@
 import 'dart:convert';
 
-import 'package:annusnovus/gallaryofindux/galleryview.dart';
-import 'package:annusnovus/gallaryofindux/partofgallary.dart';
+import 'package:annusnovus/programofindux/partofprogram.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-class gallary extends StatefulWidget {
-  const gallary({Key? key}) : super(key: key);
+class program extends StatefulWidget {
+  const program({Key? key}) : super(key: key);
 
   @override
-  _gallaryState createState() => _gallaryState();
+  _programState createState() => _programState();
 }
 
-class _gallaryState extends State<gallary> {
-  List<Gallary> gallary= [];
-  String url = "https://run.mocky.io/v3/0f69c2b4-6355-4454-acb9-ef68b9006e8f";
+class _programState extends State<program> {
+  List<Program> program= [];
+  String url = "https://run.mocky.io/v3/73103a19-731c-4ce7-8696-0636eef42284";
   Future? objfuture;
-  Future<model_gallary> apiCall() async {
-    model_gallary? objmodelgallary;
+  Future<model_program> apiCall() async {
+    model_program? objmodelprogram;
     var response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      objmodelgallary = model_gallary.fromJson(data);
+      objmodelprogram = model_program.fromJson(data);
       print(response.body);
       setState(() {
-        for (int i = 0; i < objmodelgallary!.gallary!.length; i++) {
-          gallary.add(objmodelgallary.gallary![i]);
+        for (int i = 0; i < objmodelprogram!.program!.length; i++) {
+          program.add(objmodelprogram.program![i]);
         }
       });
     }
-    return objmodelgallary!;
+    return objmodelprogram!;
   }
 
   @override
@@ -54,6 +53,16 @@ class _gallaryState extends State<gallary> {
                     return Column(
                       children: [
                         Container(
+                          decoration: BoxDecoration(
+
+                            color: Color(0xff44ad6e),
+                           //image: DecorationImage(
+
+                             // image: const AssetImage("assets/images/back.jpeg",),
+                            //  fit: BoxFit.cover,
+                            //  colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.4),BlendMode.darken),
+                         //   )
+                          ),
                           padding: EdgeInsets.only(
                             left: 15,
                             right: 15,
@@ -61,23 +70,25 @@ class _gallaryState extends State<gallary> {
                           ),
                           width: MediaQuery.of(context).size.width,
                           height: 200,
-                          color: Color(0xff44ad6e),
+
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   margin: EdgeInsets.all(15),
+                                  padding: EdgeInsets.only(right:40 ),
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Icon(
                                         Icons.arrow_back,
                                         color: Colors.white,
                                         size: 50,
                                       ),
-                                      SizedBox(
-                                        width: 360,
-                                      ),
+                                     // SizedBox(
+                                      //  width: 350,
+                                     // ),
                                       Icon(
                                         Icons.group,
                                         color: Colors.white,
@@ -93,7 +104,7 @@ class _gallaryState extends State<gallary> {
                                   child: Row(
                                     children: [
                                       Icon(
-                                        Icons.image_outlined,
+                                        Icons.school,
                                         color: Colors.white,
                                         size: 50,
                                       ),
@@ -108,7 +119,7 @@ class _gallaryState extends State<gallary> {
                                           CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "MEDIA GALLERY",
+                                              "PROGRAM",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 25),
@@ -125,11 +136,14 @@ class _gallaryState extends State<gallary> {
                                     ],
                                   ),
                                 ),
-                              ]),
+                              ]
+                          ),
+
                         ),
+                        SizedBox(height: 10),
                         Expanded(
                             child: ListView.builder(
-                                itemCount: gallary!.length,
+                                itemCount: program!.length,
                                 itemBuilder: (c, i) {
                                   return Card(
                                     child: Container(
@@ -137,8 +151,8 @@ class _gallaryState extends State<gallary> {
                                         MediaQuery.of(context).size.width,
                                         decoration: BoxDecoration(boxShadow: [
                                           BoxShadow(
-                                              //spreadRadius: 3,
-                                            blurRadius: 4,
+                                            //spreadRadius: 3,
+                                              blurRadius: 4,
                                               color: Colors.black12)
                                         ]),
                                         padding: EdgeInsets.all(10),
@@ -159,11 +173,13 @@ class _gallaryState extends State<gallary> {
                                               ],
                                             ),
                                             Container(
+                                              padding: EdgeInsets.only(right: 20),
                                               width: 393,
 
                                               child: Column(
                                                 children: [
                                                   Container(
+
                                                     width:
                                                     MediaQuery.of(context)
                                                         .size
@@ -175,6 +191,7 @@ class _gallaryState extends State<gallary> {
                                                       bottom: 5,
                                                     ),
                                                     child: Column(
+
                                                       mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .start,
@@ -182,36 +199,31 @@ class _gallaryState extends State<gallary> {
                                                       CrossAxisAlignment
                                                           .start,
                                                       children: [
-                                                        Text(gallary![i].titile!,style: TextStyle(fontWeight: FontWeight.bold,
+                                                        Text(program![i].titile!,style: TextStyle(fontWeight: FontWeight.bold,
                                                             fontFamily:"NARROW"),),
                                                         SizedBox(
                                                           height: 10,
                                                         ),
-                                                        Text(gallary![i].notes!),
+                                                        Text(program![i].notes!,style: TextStyle(fontSize: 10),),
                                                         SizedBox(
                                                           height: 10,
                                                         ),
                                                         Row(
+                                                          mainAxisAlignment: MainAxisAlignment.end,
                                                           children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .calendar_today_sharp,
-                                                              color:
-                                                              Colors.green,
-                                                            ),
+
                                                             SizedBox(
                                                               width: 15,
                                                             ),
-                                                            Text(
-                                                              gallary![i].date!,style: TextStyle(fontWeight: FontWeight.bold),),
-                                                            SizedBox(
-                                                              width: 175,
-                                                            ),
+
+                                                           // SizedBox(
+                                                           //   width: 175,
+                                                           // ),
                                                             FlatButton(onPressed: (){
-                                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>view()));
+                                                             // Navigator.push(context, MaterialPageRoute(builder: (context)=>view()));
                                                             },
                                                                 color: Colors.deepOrange,
-                                                                child: Text(gallary![i].view!,style: TextStyle(color: Colors.white),))
+                                                                child: Text(program![i].more!,style: TextStyle(color: Colors.white),))
                                                           ],
                                                         ),
                                                       ],
@@ -243,6 +255,9 @@ class _gallaryState extends State<gallary> {
     );
   }
 }
+
+
+
 
 
 

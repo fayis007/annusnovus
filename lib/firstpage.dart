@@ -125,6 +125,7 @@ class _firstState extends State<first> {
     ),
     ),
       onWillPop: () async {
+        Navigator.pop(context);
         return false;
       },
     );

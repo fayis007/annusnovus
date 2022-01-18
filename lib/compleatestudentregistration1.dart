@@ -1,3 +1,4 @@
+import 'package:annusnovus/induxe.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -141,7 +142,7 @@ class _compleatestudentregistrationState
                           children: [
                             FlatButton(
                                 onPressed: () {
-                                 Navigator.pop(context);
+                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>induxe()));
                                 },
                                 color: Colors.deepOrange,
                                 child: Text("Close",
@@ -160,6 +161,7 @@ class _compleatestudentregistrationState
         ),
       ),
       onWillPop: () async {
+        Navigator.pop(context);
         return false;
       },
     );

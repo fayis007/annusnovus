@@ -1,3 +1,4 @@
+import 'package:annusnovus/aboutofindux/about.dart';
 import 'package:flutter/material.dart';
 
 class eboutmember extends StatefulWidget {
@@ -106,7 +107,9 @@ class _eboutmemberState extends State<eboutmember> {
                             color: Colors.grey,
                             child: Center(
                               child: FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>about()));
+                                },
                                 child: Text(
                                   "Who we are",
                                   style: TextStyle(color: Colors.white),
@@ -272,6 +275,7 @@ class _eboutmemberState extends State<eboutmember> {
         ),
       ),
       onWillPop: ()async{
+        Navigator.pop(context);
         return false;
       },
     );

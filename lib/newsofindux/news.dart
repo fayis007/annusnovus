@@ -43,6 +43,7 @@ class _newspageState extends State<newspage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+
       child: SafeArea(
           left: true,
           right: true,
@@ -78,7 +79,7 @@ class _newspageState extends State<newspage> {
                                         size: 50,
                                       ),
                                       SizedBox(
-                                        width: 360,
+                                        width: 350,
                                       ),
                                       Icon(
                                         Icons.group,
@@ -206,7 +207,7 @@ class _newspageState extends State<newspage> {
                                                             Text(
                                                                 news![i].date!,style: TextStyle(fontWeight: FontWeight.bold),),
                                                             SizedBox(
-                                                              width: 180,
+                                                              width: 150,
                                                             ),
                                                            FlatButton(onPressed: (){
                                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>newsmore()));
@@ -238,6 +239,7 @@ class _newspageState extends State<newspage> {
                 ),
           )),
       onWillPop: () async {
+        Navigator.pop(context);
         return false;
       },
     );

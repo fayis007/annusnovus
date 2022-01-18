@@ -415,6 +415,7 @@ class _studentregistrationState extends State<studentregistration> {
         ),
       ),
       onWillPop: () async {
+        Navigator.pop(context);
         return false;
       },
     );

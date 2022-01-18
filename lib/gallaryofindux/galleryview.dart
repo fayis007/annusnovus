@@ -116,6 +116,7 @@ Row(
 ),
         ),
         onWillPop: ()async{
+          Navigator.pop(context);
           return false;
         },
       ),
