@@ -9,6 +9,7 @@ import 'package:annusnovus/gallaryofindux/galleryview.dart';
 import 'package:annusnovus/induxe.dart';
 import 'package:annusnovus/newsofindux/news.dart';
 import 'package:annusnovus/newsofindux/newsmore.dart';
+import 'package:annusnovus/partnersofindux/partners.dart';
 import 'package:annusnovus/programofindux/partofprogram.dart';
 import 'package:annusnovus/programofindux/program.dart';
 import 'package:annusnovus/programofindux/programmore.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:frend(),
+      home:partners(),
     );
   }
 }
