@@ -1,5 +1,6 @@
 import 'package:annusnovus/compleatestudentregistration1.dart';
 import 'package:annusnovus/studentregistration.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class studentregistration2 extends StatefulWidget {
@@ -15,13 +16,16 @@ class _studentregistration2State extends State<studentregistration2> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      resizeToAvoidBottomInset: true,
     body: SafeArea(
     top: true,
     bottom: true,
     left: true,
     right: true,
     child: Container(
-      child: Column(
+      child: ListView(
+    children: [
+      Column(
         children: [
           Container(
             padding: EdgeInsets.only(left: 30, top: 0, right: 90),
@@ -290,10 +294,11 @@ class _studentregistration2State extends State<studentregistration2> {
                               color: Colors.green,
                             )),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: 5,),
                       Container(
                         padding: EdgeInsets.only(left: 200,right: 30),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             FlatButton(
                               onPressed: () {
@@ -326,6 +331,8 @@ class _studentregistration2State extends State<studentregistration2> {
             ],
           ),
         ],
+      ),
+    ],
       ),
     ),
     ),

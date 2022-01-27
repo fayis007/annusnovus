@@ -66,8 +66,10 @@ class _gallaryState extends State<gallary> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
+
                                 margin: EdgeInsets.all(15),
                                 child: Row(
+                                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Icon(
                                       Icons.arrow_back,
@@ -75,7 +77,7 @@ class _gallaryState extends State<gallary> {
                                       size: 50,
                                     ),
                                     SizedBox(
-                                      width: 360,
+                                      width: 280,
                                     ),
                                     Icon(
                                       Icons.group,
@@ -128,7 +130,7 @@ class _gallaryState extends State<gallary> {
                       ),
                       Expanded(
                           child: ListView.builder(
-                              itemCount: gallary!.length,
+                              itemCount:gallary.length,
                               itemBuilder: (c, i) {
                                 return Card(
                                   child: Container(
@@ -157,66 +159,69 @@ class _gallaryState extends State<gallary> {
                                                   fit: BoxFit.cover),
                                             ],
                                           ),
-                                          Container(
-                                            width: 393,
+                                          Expanded(
+                                            child: Container(
+                                              width: 393,
 
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  width:
-                                                  MediaQuery.of(context)
-                                                      .size
-                                                      .width,
-                                                  alignment:
-                                                  Alignment.topLeft,
-                                                  padding: EdgeInsets.only(
-                                                    left: 10,
-                                                    bottom: 5,
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    width:
+                                                    MediaQuery.of(context)
+                                                        .size
+                                                        .width,
+                                                    alignment:
+                                                    Alignment.topLeft,
+                                                    padding: EdgeInsets.only(
+                                                      left: 10,
+                                                      bottom: 5,
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .start,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .start,
+                                                      children: [
+                                                        Text(gallary[i].titile!,style: TextStyle(fontWeight: FontWeight.bold,
+                                                            fontFamily:"NARROW"),),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Text(gallary[i].notes!),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Row(
+                                                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .calendar_today_sharp,
+                                                              color:
+                                                              Colors.green,
+                                                            ),
+                                                            SizedBox(
+                                                              width: 15,
+                                                            ),
+                                                            Text(
+                                                              gallary[i].date!,style: TextStyle(fontWeight: FontWeight.bold),),
+                                                            SizedBox(
+                                                              width: 60,
+                                                            ),
+                                                            FlatButton(onPressed: (){
+                                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>view()));
+                                                            },
+                                                                color: Colors.deepOrange,
+                                                                child: Text(gallary[i].view!,style: TextStyle(color: Colors.white),))
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .start,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment
-                                                        .start,
-                                                    children: [
-                                                      Text(gallary![i].titile!,style: TextStyle(fontWeight: FontWeight.bold,
-                                                          fontFamily:"NARROW"),),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(gallary![i].notes!),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                            Icons
-                                                                .calendar_today_sharp,
-                                                            color:
-                                                            Colors.green,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 15,
-                                                          ),
-                                                          Text(
-                                                            gallary![i].date!,style: TextStyle(fontWeight: FontWeight.bold),),
-                                                          SizedBox(
-                                                            width: 175,
-                                                          ),
-                                                          FlatButton(onPressed: (){
-                                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>view()));
-                                                          },
-                                                              color: Colors.deepOrange,
-                                                              child: Text(gallary![i].view!,style: TextStyle(color: Colors.white),))
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ],

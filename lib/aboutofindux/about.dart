@@ -44,7 +44,7 @@ class _aboutState extends State<about> {
                           size: 50,
                         ),
                         SizedBox(
-                          width: 360,
+                          width: 280,
                         ),
                         Icon(
                           Icons.group,

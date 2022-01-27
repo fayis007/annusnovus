@@ -48,6 +48,7 @@ class _newspageState extends State<newspage> {
         top: true,
         bottom: true,
         child: Scaffold(
+          resizeToAvoidBottomInset: true,
           body: FutureBuilder(
               future: objfuture,
               builder: (context, snap) {
@@ -70,6 +71,8 @@ class _newspageState extends State<newspage> {
                               Container(
                                 margin: EdgeInsets.all(15),
                                 child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Icon(
                                       Icons.arrow_back,
@@ -77,7 +80,7 @@ class _newspageState extends State<newspage> {
                                       size: 50,
                                     ),
                                     SizedBox(
-                                      width: 350,
+                                      width: 280,
                                     ),
                                     Icon(
                                       Icons.group,
@@ -130,12 +133,11 @@ class _newspageState extends State<newspage> {
                       ),
                       Expanded(
                           child: ListView.builder(
-                              itemCount: news!.length,
+                              itemCount: news.length,
                               itemBuilder: (c, i) {
                                 return Card(
                                   child: Container(
-                                      width:
-                                          MediaQuery.of(context).size.width,
+                                      width: MediaQuery.of(context).size.width,
                                       decoration: BoxDecoration(boxShadow: [
                                         BoxShadow(
                                             spreadRadius: 3,
@@ -159,59 +161,94 @@ class _newspageState extends State<newspage> {
                                             ],
                                           ),
                                           Container(
-                                            width: 393,
-
+                                            width: 300,
                                             child: Column(
                                               children: [
                                                 Container(
-                                                  width:
-                                                      MediaQuery.of(context)
-                                                          .size
-                                                          .width,
-                                                  alignment:
-                                                      Alignment.topLeft,
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  alignment: Alignment.topLeft,
                                                   padding: EdgeInsets.only(
                                                     left: 10,
                                                     bottom: 5,
                                                   ),
                                                   child: Column(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .start,
+                                                        MainAxisAlignment.start,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(news![i].titile!,style: TextStyle(fontWeight: FontWeight.bold,
-                                                      fontFamily:"NARROW"),),
+                                                      Text(
+                                                        news[i].titile!,
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontFamily:
+                                                                "NARROW"),
+                                                      ),
                                                       SizedBox(
                                                         height: 10,
                                                       ),
-                                                      Text(news![i].notes!),
+                                                      Text(
+                                                        news[i].notes!,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        textAlign:
+                                                            TextAlign.justify,
+                                                        maxLines: 2,
+                                                      ),
                                                       SizedBox(
                                                         height: 10,
                                                       ),
                                                       Row(
+                                                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                                                         children: [
-                                                          Icon(
-                                                            Icons
-                                                                .calendar_today_sharp,
-                                                            color:
-                                                                Colors.green,
+                                                          Container(
+                                                            //  color: Colors.green,
+                                                            child: Row(
+                                                              children: [
+                                                                Icon(
+                                                                  Icons
+                                                                      .calendar_today_sharp,
+                                                                  color: Colors
+                                                                      .green,
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 15,
+                                                                ),
+                                                                Text(
+                                                                  news[i].date!,
+                                                                  style: TextStyle(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                           SizedBox(
-                                                            width: 15,
+                                                            width: 80,
                                                           ),
-                                                          Text(
-                                                              news![i].date!,style: TextStyle(fontWeight: FontWeight.bold),),
-                                                          SizedBox(
-                                                            width: 150,
-                                                          ),
-                                                         FlatButton(onPressed: (){
-                                                           Navigator.push(context, MaterialPageRoute(builder: (context)=>newsmore()));
-                                                         },
-                                                             color: Colors.deepOrange,
-                                                             child: Text(news![i].more!,style: TextStyle(color: Colors.white),))
+                                                          FlatButton(
+                                                              onPressed: () {
+                                                                Navigator.push(
+                                                                    context,
+                                                                    MaterialPageRoute(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                newsmore()));
+                                                              },
+                                                              color: Colors
+                                                                  .deepOrange,
+                                                              child: Text(
+                                                                news[i].more!,
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white),
+                                                              ))
                                                         ],
                                                       ),
                                                     ],
